@@ -158,6 +158,14 @@ cursor:pointer;
 </style>
 </head>
 <body>
+  <script>
+  const password = "1234";
+  const input = prompt("Enter password:");
+  if (input !== password) {
+    document.body.innerHTML = "<h2>Access Denied</h2>";
+    window.location.href = "about:blank";
+  }
+</script>
 
 <nav>
 <div class="logo">LOVEFLIX</div>
