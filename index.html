@@ -287,12 +287,15 @@ More Info
 
 </div>
 </div>
-
+<video id="movie" width="100%" controls style="display:none;">
+  <source src="love.mp4" type="video/mp4">
+</video>
 <script>
 function playMovie(){
-alert(
-"Now Playing:\n\nThe Girl Who Accidentally Became My Favorite Person ❤️"
-);
+const movie = document.getElementById("movie");
+movie.style.display = "block";
+movie.play();
+movie.scrollIntoView({behavior:"smooth"});
 }
 
 function showInfo(){
