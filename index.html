@@ -370,10 +370,16 @@ window.showEpisode5 = function(){
 }
 </script>
 </div>
-  <script>
-  const password = "yourpassword";
-  const input = prompt("Enter password:");
-  if (input !== password) {
+  
+<script>
+  const users = {
+    "apurv": "Apurv@8446245692",
+  };
+
+  const username = prompt("Enter User ID:");
+  const password = prompt("Enter Password:");
+
+  if (users[username] !== password) {
     document.body.innerHTML = "<h2>Access Denied</h2>";
     window.location.href = "about:blank";
   }
