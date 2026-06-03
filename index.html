@@ -221,7 +221,7 @@ More Info
 <div class="rating">99% Match</div>
 </div>
 
-<div class="card">
+<div class="card" onclick="showCoat()">
 <h3>Episode 3</h3>
 <p>The Text That Changed Everything</p>
 <div class="rating">100% Match</div>
@@ -295,6 +295,29 @@ More Info
 
 </div>
 </div>
+
+  <div class="modal" id="coatModal">
+<div class="modal-content" style="text-align:center;">
+
+<span class="close" onclick="closeCoat()">
+×
+</span>
+
+<h2>Episode 3 Memory</h2>
+
+<img
+src="coat.jpeg"
+alt="Coat"
+style="
+max-height:70vh;
+transform:rotate(90deg);
+margin-top:20px;
+"
+>
+
+</div>
+</div>
+  
 <video id="movie" width="100%" controls style="display:none;">
   <source src="love.mp4" type="video/mp4">
 </video>
@@ -309,9 +332,15 @@ movie.scrollIntoView({behavior:"smooth"});
 function showInfo(){
 document.getElementById("modal").style.display="flex";
 }
-
 function closeModal(){
 document.getElementById("modal").style.display="none";
+}
+  function showCoat(){
+document.getElementById("coatModal").style.display="flex";
+}
+
+function closeCoat(){
+document.getElementById("coatModal").style.display="none";
 }
 </script>
 
