@@ -167,16 +167,11 @@ z-index:9999;
 </head>
 <body>
 <div id="authBox" style="padding:40px;text-align:center;">
-
-  <div id="siteContent" style="display:none;">
-    
   <h2>Loveflix Login</h2>
 
   <input id="email" type="email" placeholder="Email"><br><br>
-
   <input id="password" type="password" placeholder="Password"><br><br>
 
-  
   <button id="login">Login</button>
 </div>
 
@@ -382,37 +377,30 @@ window.showEpisode5 = function(){
   alert("Episode 5 clicked");
 }
 </script>
-  <script type="module">
+ <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-
 import {
   getAuth,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
-  const site = document.getElementById("siteContent");
-  const authBox = document.getElementById("authBox");
-
-  // Always lock first
-  site.style.display = "none";
-  authBox.style.display = "block";
-
-  if (user && allowedUsers.includes(user.email)) {
-    authBox.style.display = "none";
-    site.style.display = "block";
-  } else if (user) {
-    alert("Access denied");
-    auth.signOut();
-  }
-});
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_BUCKET",
+  messagingSenderId: "YOUR_ID",
+  appId: "YOUR_APP_ID"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-    
-window.onload = () => {
-  auth.signOut();
-};
+
+const site = document.getElementById("siteContent");
+const authBox = document.getElementById("authBox");
+
+const allowedUsers = ["apuravb16@gmail.com"];
 
 document.getElementById("login").onclick = async () => {
   const email = document.getElementById("email").value;
@@ -425,21 +413,16 @@ document.getElementById("login").onclick = async () => {
   }
 };
 
-const allowedUsers = [
-  "apuravb16@gmail.com",
-  
-];
-
 onAuthStateChanged(auth, (user) => {
   if (user && allowedUsers.includes(user.email)) {
-    document.getElementById("authBox").style.display = "none";
-    document.getElementById("siteContent").style.display = "block";
+    authBox.style.display = "none";
+    site.style.display = "block";
   } else {
-    document.getElementById("authBox").style.display = "block";
-    document.getElementById("siteContent").style.display = "none";
+    authBox.style.display = "block";
+    site.style.display = "none";
 
     if (user) {
-      alert("Access denied: You are not allowed to use this site.");
+      alert("Access denied");
       auth.signOut();
     }
   }
