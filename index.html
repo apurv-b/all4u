@@ -422,13 +422,23 @@ document.getElementById("login").onclick = async () => {
   }
 };
 
+const allowedUsers = [
+  "apuravb16@gmail.com",
+  
+];
+
 onAuthStateChanged(auth, (user) => {
-  if (user) {
+  if (user && allowedUsers.includes(user.email)) {
     document.getElementById("authBox").style.display = "none";
     document.getElementById("siteContent").style.display = "block";
   } else {
     document.getElementById("authBox").style.display = "block";
     document.getElementById("siteContent").style.display = "none";
+
+    if (user) {
+      alert("Access denied: You are not allowed to use this site.");
+      auth.signOut();
+    }
   }
 });
 </script>
