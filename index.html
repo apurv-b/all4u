@@ -372,12 +372,17 @@ window.showEpisode5 = function(){
 </div>
   
 <script>
-  const password = "Apurv@8446245692";
-  const input = prompt("Enter password:");
-  if (input !== password) {
-    document.body.innerHTML = "<h2>Access Denied</h2>";
-    window.location.href = "about:blank";
-  }
+  window.onload = function () {
+    const password = "Apurv@8446245692";
+    const input = prompt("Enter password:");
+
+    if (input !== password) {
+      document.body.innerHTML = "<h2>Access Denied</h2>";
+      setTimeout(() => {
+        window.location.replace("about:blank");
+      }, 500);
+    }
+  };
 </script>
   
 </body>
