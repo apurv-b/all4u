@@ -383,22 +383,30 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+onAuthStateChanged(auth, (user) => {
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBZttG-0xs2T6NAs8JqvswvwpYw3apGXns",
-  authDomain: "loveflix-33900.firebaseapp.com",
-  projectId: "loveflix-33900",
-  storageBucket: "loveflix-33900.firebasestorage.app",
-  messagingSenderId: "469358993471",
-  appId: "1:469358993471:web:f1ce9b69f4ed521a6b188a",
-  measurementId: "G-CTDSBE67Q4"
-};
+  const site = document.getElementById("siteContent");
+  const authBox = document.getElementById("authBox");
+
+  // Always lock first
+  site.style.display = "none";
+  authBox.style.display = "block";
+
+  if (user && allowedUsers.includes(user.email)) {
+    authBox.style.display = "none";
+    site.style.display = "block";
+  } else if (user) {
+    alert("Access denied");
+    auth.signOut();
+  }
+});
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+    
+window.onload = () => {
+  auth.signOut();
+};
 
 document.getElementById("login").onclick = async () => {
   const email = document.getElementById("email").value;
