@@ -386,19 +386,24 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBZttG-0xs2T6NAs8JqvswvwpYw3apGXns",
+  authDomain: "loveflix-33900.firebaseapp.com",
+  projectId: "loveflix-33900",
+  storageBucket: "loveflix-33900.firebasestorage.app",
+  messagingSenderId: "469358993471",
+  appId: "1:469358993471:web:32d5652a5ffce2086b188a",
+  measurementId: "G-8ZW1WHVF2R"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const site = document.getElementById("siteContent");
-const authBox = document.getElementById("authBox");
+let site, authBox;
+
+window.addEventListener("DOMContentLoaded", () => {
+  site = document.getElementById("siteContent");
+  authBox = document.getElementById("authBox");
+});
 
 const allowedUsers = ["apuravb16@gmail.com"];
 
@@ -423,7 +428,8 @@ onAuthStateChanged(auth, (user) => {
 
     if (user) {
       alert("Access denied");
-      auth.signOut();
+      import { signOut } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+signOut(auth);
     }
   }
 });
