@@ -151,22 +151,22 @@ border-radius:10px;
 }
 
 .close{
-position:absolute;
-top:10px;
-right:20px;
-font-size:40px;
-color:white;
-font-weight:bold;
+float:right;
+font-size:30px;
 cursor:pointer;
-z-index:9999;
 }
-
 </style>
 </head>
-  
 <body>
+  <script>
+  const password = "Apurv@8446245692";
+  const input = prompt("Enter password:");
+  if (input !== password) {
+    document.body.innerHTML = "<h2>Access Denied</h2>";
+    window.location.href = "about:blank";
+  }
+</script>
 
-  
 <nav>
 <div class="logo">LOVEFLIX</div>
 </nav>
@@ -209,31 +209,31 @@ More Info
 
 <div class="row">
 
-<div class="card" onclick="showEpisode1()">
+<div class="card">
 <h3>Episode 1</h3>
 <p>The Crush I Never Planned</p>
 <div class="rating">98% Match</div>
 </div>
 
-<div class="card" onclick="showEpisode2()">
+<div class="card">
 <h3>Episode 2</h3>
 <p>8 PM: My Favorite Notification</p>
 <div class="rating">99% Match</div>
 </div>
 
-<div class="card" onclick="showEpisode3()">
+<div class="card">
 <h3>Episode 3</h3>
 <p>The Text That Changed Everything</p>
 <div class="rating">100% Match</div>
 </div>
 
-<div class="card" onclick="showEpisode4()">
+<div class="card">
 <h3>Episode 4</h3>
 <p>From Good Nights to Good Mornings</p>
 <div class="rating">100% Match</div>
 </div>
 
-<div class="card" onclick="showEpisode5()">
+<div class="card">
 <h3>Episode 5</h3>
 <p>To Be Continued... Forever</p>
 <div class="rating">Infinite% Match</div>
@@ -282,105 +282,38 @@ More Info
 <br>
 
 <p>
-★★★★★<br><br>
+★★★★★
 
-"A masterpiece."<br><br>
+"A masterpiece."
 
-"Best female lead ever created."<br><br>
+"Best female lead ever created."
 
-"Viewer became emotionally attached after Episode 1."<br><br>
+"Viewer became emotionally attached after Episode 1."
 
-"Would watch forever."<br><br>
-
-"An emotional rollercoaster with an unfairly lovable protagonist."<br><br>
-
-"Every episode somehow manages to be better than the previous one."<br><br>
-
-"The chemistry between the main character and her biggest fan is unmatched."<br><br>
-
-"Critics agree: smiling at your screen becomes unavoidable."<br><br>
-
-"One of the rare shows that turns ordinary moments into unforgettable memories."<br><br>
-
-"100% on the Loveflix Critics Score."<br><br>
-
-"Episode 3 deserves its own award category."<br><br>
-
-"A series that proves happiness can arrive through a simple notification."<br><br>
-
-"Viewers reported immediate attachment to the lead character."<br><br>
-
-"Renewed for infinity seasons by popular demand."<br><br>
-
-"The audience didn't want the credits to roll."<br><br>
-
-"An instant classic."
+"Would watch forever."
 </p>
 
 </div>
 </div>
-
-  <div class="modal" id="coatModal">
-<div class="modal-content" style="text-align:center;">
-
-<span class="close" onclick="closeCoat()">
-×
-</span>
-
-<h2>Episode 3 Memory</h2>
-
-<img
-src="coat.jpeg"
-alt="Coat"
-style="
-max-height:70vh;
-transform:rotate(90deg);
-margin-top:20px;
-"
->
-
-</div>
-</div>
-  <video id="movie" width="100%" controls>
+<video id="movie" width="100%" controls style="display:none;">
   <source src="love.mp4" type="video/mp4">
 </video>
-  
 <script>
-window.showEpisode1 = function(){
-  alert("Episode 1 clicked");
+function playMovie(){
+const movie = document.getElementById("movie");
+movie.style.display = "block";
+movie.play();
+movie.scrollIntoView({behavior:"smooth"});
 }
 
-window.showEpisode2 = function(){
-  alert("Episode 2 clicked");
+function showInfo(){
+document.getElementById("modal").style.display="flex";
 }
 
-window.showEpisode3 = function(){
-  alert("Episode 3 clicked");
-}
-
-window.showEpisode4 = function(){
-  alert("Episode 4 clicked");
-}
-
-window.showEpisode5 = function(){
-  alert("Episode 5 clicked");
+function closeModal(){
+document.getElementById("modal").style.display="none";
 }
 </script>
-</div>
-  
-<script>
-  window.onload = function () {
-    const password = "Apurv@8446245692";
-    const input = prompt("Enter password:");
 
-    if (input !== password) {
-      document.body.innerHTML = "<h2>Access Denied</h2>";
-      setTimeout(() => {
-        window.location.replace("about:blank");
-      }, 500);
-    }
-  };
-</script>
-  
 </body>
 </html>
