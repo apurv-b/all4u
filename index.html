@@ -399,17 +399,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-document.getElementById("signup").onclick = async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    alert("Account created!");
-  } catch (e) {
-    alert(e.message);
-  }
-};
 
 document.getElementById("login").onclick = async () => {
   const email = document.getElementById("email").value;
