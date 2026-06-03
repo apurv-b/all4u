@@ -350,26 +350,26 @@ margin-top:20px;
 <video id="movie" width="100%" controls style="display:none;">
   <source src="love.mp4" type="video/mp4">
 </video>
+  
 <script>
-function playMovie(){
-const movie = document.getElementById("movie");
-movie.style.display = "block";
-movie.play();
-movie.scrollIntoView({behavior:"smooth"});
+window.showEpisode1 = function(){
+  alert("Episode 1 clicked");
 }
 
-function showInfo(){
-document.getElementById("modal").style.display="flex";
-}
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-  function showCoat(){
-document.getElementById("coatModal").style.display="flex";
+window.showEpisode2 = function(){
+  alert("Episode 2 clicked");
 }
 
-function closeCoat(){
-document.getElementById("coatModal").style.display="none";
+window.showEpisode3 = function(){
+  alert("Episode 3 clicked");
+}
+
+window.showEpisode4 = function(){
+  alert("Episode 4 clicked");
+}
+
+window.showEpisode5 = function(){
+  alert("Episode 5 clicked");
 }
 </script>
 
