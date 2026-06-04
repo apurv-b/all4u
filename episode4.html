@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Episode 2 - 8 PM: My Favorite Notification</title>
+<title>Episode 4 — From Good Nights to Good Mornings</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -33,22 +33,22 @@ font-weight:600;
 z-index:1000;
 }
 
-.hero {
-    background: linear-gradient(
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.6)
-    ),
-    url('love.jpeg');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    min-height: 400px;
+/* HERO */
+.hero{
+height:60vh;
+background:
+linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
+url("op.jpeg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:flex-end;
+padding:50px;
 }
 
 .hero h1{
 font-size:3rem;
+text-shadow:0 10px 30px rgba(0,0,0,0.8);
 }
 
 .subtitle{
@@ -56,6 +56,7 @@ color:#ddd;
 margin-top:10px;
 }
 
+/* CONTAINER */
 .container{
 max-width:1000px;
 margin:auto;
@@ -84,35 +85,40 @@ transform:scale(1.02);
 background:#2a2a2a;
 }
 
+/* MEDIA */
 img{
 width:100%;
 border-radius:10px;
 margin-top:10px;
 }
 
-.notification{
-background:#222;
+/* CHAT / MOVIE STYLE */
+.chat{
+background:#111;
 padding:20px;
 border-radius:10px;
-text-align:center;
-font-size:1.2rem;
-margin-top:10px;
-animation:glow 1.5s infinite alternate;
+font-family:monospace;
+color:#ddd;
+line-height:2;
 }
 
-@keyframes glow{
-from{box-shadow:0 0 10px #e50914;}
-to{box-shadow:0 0 25px #e50914;}
+.typing span{
+opacity:0;
+display:inline-block;
+animation:blink 1.5s infinite;
 }
 
-.phone{
-background:black;
-padding:20px;
-border-radius:20px;
-text-align:center;
-margin-top:20px;
+.typing span:nth-child(1){animation-delay:0s;}
+.typing span:nth-child(2){animation-delay:0.5s;}
+.typing span:nth-child(3){animation-delay:1s;}
+
+@keyframes blink{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
 }
 
+/* QUOTE */
 .quote{
 text-align:center;
 margin-top:40px;
@@ -125,13 +131,13 @@ font-style:italic;
 
 <body>
 
-<a href="index.html" class="back">← Back</a>
+<a class="back" href="index.html">← Back</a>
 
 <!-- HERO -->
 <div class="hero">
 <div>
-<h1>📱 Episode 2</h1>
-<p class="subtitle">8 PM: My Favorite Notification</p>
+<h1>💌 Episode 4</h1>
+<p class="subtitle">From Good Nights to Good Mornings</p>
 </div>
 </div>
 
@@ -141,27 +147,25 @@ font-style:italic;
 <div class="section">
 <h2>Story Content</h2>
 <div class="box">
-• How conversations started<br>
-• First chats<br>
-• Why you waited for her messages<br>
-• How your mood changed when she texted<br>
-• Why her messages felt different
+• How good nights turned into good mornings<br>
+• Late night conversations<br>
+• Comfort in talking daily<br>
+• She became part of your routine<br>
+• Emotional connection growing silently
 </div>
 </div>
 
-<!-- LOVEFLIX DETAILS -->
+<!-- NETFLIX DETAILS -->
 <div class="section">
 <h2>Netflix Details</h2>
 <div class="box">
-<b>Category:</b> Daily Happiness<br><br>
+<b>Genre:</b> Comfort Romance<br><br>
 
-<b>Favorite Time:</b> 8:00 PM<br><br>
+<b>Main Theme:</b> Daily conversations becoming attachment<br><br>
 
-<b>Side Effects:</b> Checking phone too often<br><br>
+<b>Highlight Moment:</b> First “good morning” message<br><br>
 
-<b>Most Replayed Scene:</b> "Hey"<br><br>
-
-<b>Personal Rating:</b> ★★★★★
+<b>Emotional Shift:</b> She became part of your day
 </div>
 </div>
 
@@ -170,31 +174,45 @@ font-style:italic;
 <h2>Media</h2>
 
 <div class="box">
-📷 Funny chat screenshots
 
-<img src="chat1.jpg" alt="chat screenshot">
+📷 Late night chats screenshot
+
+<img src="chatnight.jpg">
 
 <br><br>
 
-📷 Notification mockup
+📷 Morning notification moment
 
-<div class="notification">
-Cutie sent a message ❤️
+<img src="morning.jpg">
+
+</div>
 </div>
 
-<br>
+<!-- MOVIE STYLE MESSAGE -->
+<div class="section">
+<h2>🎥 Movie-Style Moment</h2>
 
-<div class="phone">
-📱 Phone screen lights up<br>
-8:00 PM appears<br>
-Notification arrives
-</div>
+<div class="chat typing">
+
+Good night...<br>
+<span>.</span><span>.</span><span>.</span><br><br>
+
+But the conversation never ended...<br><br>
+
+Good morning text arrives...<br><br>
+
+And suddenly...<br><br>
+
+She became part of your routine.
+
 </div>
 </div>
 
 <!-- ENDING -->
-<div class="quote">
-"My favorite part of the day."
+<div class="section">
+<div class="box" style="text-align:center;font-style:italic;">
+Some people don’t just talk to you… they become your day.
+</div>
 </div>
 
 </div>
