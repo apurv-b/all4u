@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Episode 2 - 8 PM: My Favorite Notification</title>
+<title>Episode 5 — To Be Continued... Forever</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -33,27 +33,28 @@ font-weight:600;
 z-index:1000;
 }
 
-.hero {
-    background: linear-gradient(
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.6)
-    ),
-    url('love.jpeg');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    min-height: 400px;
+/* HERO COVER */
+.hero{
+height:70vh;
+background:
+linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
+url("love.jpeg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:flex-end;
+padding:60px;
 }
 
 .hero h1{
-font-size:3rem;
+font-size:3.5rem;
+text-shadow:0 10px 30px rgba(0,0,0,0.8);
 }
 
 .subtitle{
 color:#ddd;
 margin-top:10px;
+font-size:1.2rem;
 }
 
 .container{
@@ -84,54 +85,64 @@ transform:scale(1.02);
 background:#2a2a2a;
 }
 
-img{
+/* COLLAGE GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+margin-top:15px;
+}
+
+.grid img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+transition:0.3s;
+}
+
+.grid img:hover{
+transform:scale(1.05);
+}
+
+/* TRAILER */
+video{
 width:100%;
 border-radius:10px;
 margin-top:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
-.notification{
-background:#222;
-padding:20px;
+/* END CARD */
+.end{
+text-align:center;
+margin-top:50px;
+padding:40px;
+background:#1a1a1a;
 border-radius:10px;
-text-align:center;
-font-size:1.2rem;
+}
+
+.end h2{
+color:#e50914;
+font-size:2rem;
+}
+
+.end p{
 margin-top:10px;
-animation:glow 1.5s infinite alternate;
-}
-
-@keyframes glow{
-from{box-shadow:0 0 10px #e50914;}
-to{box-shadow:0 0 25px #e50914;}
-}
-
-.phone{
-background:black;
-padding:20px;
-border-radius:20px;
-text-align:center;
-margin-top:20px;
-}
-
-.quote{
-text-align:center;
-margin-top:40px;
-font-size:1.3rem;
 color:#ddd;
-font-style:italic;
 }
 </style>
 </head>
 
 <body>
 
-<a href="index.html" class="back">← Back</a>
+<a class="back" href="index.html">← Back</a>
 
 <!-- HERO -->
 <div class="hero">
 <div>
-<h1>📱 Episode 2</h1>
-<p class="subtitle">8 PM: My Favorite Notification</p>
+<h1>🎬 Episode 5</h1>
+<p class="subtitle">To Be Continued... Forever</p>
 </div>
 </div>
 
@@ -141,11 +152,11 @@ font-style:italic;
 <div class="section">
 <h2>Story Content</h2>
 <div class="box">
-• How conversations started<br>
-• First chats<br>
-• Why you waited for her messages<br>
-• How your mood changed when she texted<br>
-• Why her messages felt different
+• Why she matters<br>
+• What you admire most<br>
+• Favorite memories<br>
+• Things you're grateful for<br>
+• Message for future her
 </div>
 </div>
 
@@ -153,15 +164,15 @@ font-style:italic;
 <div class="section">
 <h2>Netflix Details</h2>
 <div class="box">
-<b>Category:</b> Daily Happiness<br><br>
+<b>Series Status:</b> Ongoing<br><br>
 
-<b>Favorite Time:</b> 8:00 PM<br><br>
+<b>Favorite Character:</b> Sanjana<br><br>
 
-<b>Side Effects:</b> Checking phone too often<br><br>
+<b>Genre:</b> Comedy, Comfort, Romance<br><br>
 
-<b>Most Replayed Scene:</b> "Hey"<br><br>
+<b>Personal Rating:</b> ★★★★★<br><br>
 
-<b>Personal Rating:</b> ★★★★★
+<b>Future Seasons:</b> Hopefully Unlimited ❤️
 </div>
 </div>
 
@@ -170,31 +181,48 @@ font-style:italic;
 <h2>Media</h2>
 
 <div class="box">
-📷 Funny chat screenshots
 
-<img src="chat1.jpg" alt="chat screenshot">
+📷 Collage of favorite moments
+
+<div class="grid">
+<img src="m1.jpg">
+<img src="m2.jpg">
+<img src="m3.jpg">
+<img src="m4.jpg">
+<img src="m5.jpg">
+<img src="m6.jpg">
+<img src="m7.jpg">
+<img src="m8.jpg">
+</div>
 
 <br><br>
 
-📷 Notification mockup
+📷 Movie-style posters grid
 
-<div class="notification">
-Cutie sent a message ❤️
+<div class="grid">
+<img src="p1.jpg">
+<img src="p2.jpg">
+<img src="p3.jpg">
+<img src="p4.jpg">
+<img src="p5.jpg">
 </div>
 
-<br>
+<br><br>
 
-<div class="phone">
-📱 Phone screen lights up<br>
-8:00 PM appears<br>
-Notification arrives
-</div>
+🎥 Season Recap Trailer
+
+<video controls>
+<source src="trailer.mp4" type="video/mp4">
+</video>
+
 </div>
 </div>
 
 <!-- ENDING -->
-<div class="quote">
-"My favorite part of the day."
+<div class="end">
+<h2>LOVEFLIX ORIGINAL</h2>
+<p>Season 1 Complete</p>
+<p>Renewed For Future Seasons ❤️</p>
 </div>
 
 </div>
