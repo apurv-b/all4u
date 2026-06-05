@@ -331,6 +331,75 @@ border-radius:10px;
 .p80{ width:80%; }
 .p90{ width:90%; }
 .p100{ width:100%; }
+
+
+  .modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.modal-content{
+background:#181818;
+padding:30px;
+width:90%;
+max-width:700px;
+border-radius:12px;
+color:white;
+animation:pop 0.3s ease;
+position:relative;
+}
+
+@keyframes pop{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:30px;
+cursor:pointer;
+color:white;
+}
+
+/* grid layout */
+.modal-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:20px;
+}
+
+.info-block{
+background:#222;
+padding:15px;
+border-radius:10px;
+}
+
+.info-block h3{
+color:#e50914;
+margin-bottom:5px;
+font-size:1rem;
+}
+
+.tagline{
+margin-top:15px;
+color:#ccc;
+font-style:italic;
+text-align:center;
+}
   
 </style>
   
@@ -543,59 +612,71 @@ More Info
 </div> <!-- timeline ends -->
 </div> <!-- section ends -->
 
-<div class="modal" id="modal">
-<div class="modal-content">
+<div class="modal" id="modal" onclick="outsideClose(event)">
 
-<span class="close" onclick="closeModal()">
-×
-</span>
+<div class="modal-content" onclick="event.stopPropagation()">
 
-<h1>Critics Review</h1>
+<span class="close" onclick="closeModal()">×</span>
 
-<br>
+<h2>LOVEFLIX</h2>
 
-<p>
-★★★★★<br><br>
+<div class="tabs">
+<button class="tab active" onclick="switchTab('info')">Info</button>
+<button class="tab" onclick="switchTab('reviews')">Reviews</button>
+</div>
 
-"A masterpiece."<br><br>
+<!-- INFO TAB -->
+<div class="tab-content" id="info">
 
-"Best female lead ever created."<br><br>
+<div class="grid">
 
-"Viewer became emotionally attached after Episode 1."<br><br>
+<div class="box">
+<h3>Genre</h3>
+<p>Romantic • Emotional • Comedy</p>
+</div>
 
-"Would watch forever."<br><br>
+<div class="box">
+<h3>Episodes</h3>
+<p>5</p>
+</div>
 
-"An emotional rollercoaster with an unfairly lovable protagonist."<br><br>
+<div class="box">
+<h3>Seasons</h3>
+<p>Infinite</p>
+</div>
 
-"Every episode somehow manages to be better than the previous one."<br><br>
+<div class="box">
+<h3>Creator</h3>
+<p>Apurv B.</p>
+</div>
 
-"The chemistry between the main character and her biggest fan is unmatched."<br><br>
+</div>
 
-"Critics agree: smiling at your screen becomes unavoidable."<br><br>
-
-"One of the rare shows that turns ordinary moments into unforgettable memories."<br><br>
-
-"100% on the Loveflix Critics Score."<br><br>
-
-"Episode 3 deserves its own award category."<br><br>
-
-"A series that proves happiness can arrive through a simple notification."<br><br>
-
-"Viewers reported immediate attachment to the lead character."<br><br>
-
-"Renewed for infinity seasons by popular demand."<br><br>
-
-"The audience didn't want the credits to roll."<br><br>
-
-"An instant classic."
+<p class="quote">
+“A story that started randomly… and stayed forever.”
 </p>
 
+</div>
+
+<!-- REVIEWS TAB -->
+<div class="tab-content" id="reviews" style="display:none;">
+
+<p>★★★★★</p>
+<p>"A masterpiece."</p>
+<p>"Emotionally addictive storytelling."</p>
+<p>"Every episode feels unforgettable."</p>
+<p>"Viewers got attached after Episode 1."</p>
 
 </div>
+
 </div>
+
+</div>
+  
 <video id="movie" width="100%" controls style="display:none;">
   <source src="love.mp4" type="video/mp4">
 </video>
+  
 <script>
 function playMovie(){
 const movie = document.getElementById("movie");
@@ -611,6 +692,29 @@ document.getElementById("modal").style.display="flex";
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
+
+  function outsideClose(e){
+document.getElementById("modal").style.display="none";
+}
+
+function switchTab(tab){
+
+document.getElementById("info").style.display =
+tab === "info" ? "block" : "none";
+
+document.getElementById("reviews").style.display =
+tab === "reviews" ? "block" : "none";
+
+let buttons = document.querySelectorAll(".tab");
+buttons.forEach(b => b.classList.remove("active"));
+
+if(tab === "info"){
+buttons[0].classList.add("active");
+}else{
+buttons[1].classList.add("active");
+}
+}
+  
 </script>
 
   <script>
