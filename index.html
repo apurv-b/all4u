@@ -449,6 +449,55 @@ align-items: center;
 width: 90%;
 }
 }
+
+  /* INFO GRID */
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px; /* spacing between Genre, Episodes etc */
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.info-card{
+background:#222;
+padding:18px;
+border-radius:10px;
+}
+
+/* TABS */
+.tabs{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.tab{
+padding:10px 20px;
+background:#222;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:6px;
+font-weight:600;
+}
+
+.tab.active{
+background:#e50914;
+}
+
+/* REVIEWS */
+.review{
+background:#222;
+padding:15px;
+border-radius:10px;
+margin-bottom:12px;
+}
+
+.review-stars{
+color:#ffd700;
+margin-bottom:5px;
+}
   
 </style>
   <link rel="icon" type="image/png" href="favicon.png">
@@ -674,6 +723,19 @@ More Info
 
 <div class="modal-body">
 
+<div class="tabs">
+<button class="tab active" onclick="switchTab('info')">
+Info
+</button>
+
+<button class="tab" onclick="switchTab('reviews')">
+Reviews
+</button>
+</div>
+
+<!-- INFO TAB -->
+<div id="info">
+
 <div class="info-grid">
 
 <div class="info-card">
@@ -700,34 +762,46 @@ More Info
 
 <div class="rating-box">
 <h3>Audience Rating</h3>
+
 <div class="bar">
 <div class="fill"></div>
 </div>
+
 <p>98% Match</p>
 </div>
 
 <p class="quote">
-“A story that started as a moment… and became a memory.”
+"A story that started as a moment… and became a memory."
 </p>
 
 </div>
 
-</div>
-
-</div>
 <!-- REVIEWS TAB -->
-<div class="tab-content" id="reviews" style="display:none;">
+<div id="reviews" style="display:none;">
 
-<p>★★★★★</p>
-<p>"A masterpiece."</p>
-<p>"Emotionally addictive storytelling."</p>
-<p>"Every episode feels unforgettable."</p>
-<p>"Viewers got attached after Episode 1."</p>
+<div class="review">
+<div class="review-stars">★★★★★</div>
+<p>"A masterpiece from beginning to end."</p>
+</div>
 
+<div class="review">
+<div class="review-stars">★★★★★</div>
+<p>"Every episode somehow gets better."</p>
+</div>
+
+<div class="review">
+<div class="review-stars">★★★★★</div>
+<p>"The most binge-worthy LOVEFLIX original."</p>
+</div>
+
+<div class="review">
+<div class="review-stars">★★★★★</div>
+<p>"98% Match? Should be 100%."</p>
 </div>
 
 </div>
 
+</div>
 </div>
   
 <video id="movie" width="100%" controls style="display:none;">
@@ -757,19 +831,21 @@ document.getElementById("modal").style.display="none";
 function switchTab(tab){
 
 document.getElementById("info").style.display =
-tab === "info" ? "block" : "none";
+(tab === "info") ? "block" : "none";
 
 document.getElementById("reviews").style.display =
-tab === "reviews" ? "block" : "none";
+(tab === "reviews") ? "block" : "none";
 
-let buttons = document.querySelectorAll(".tab");
-buttons.forEach(b => b.classList.remove("active"));
+document.querySelectorAll(".tab").forEach(btn=>{
+btn.classList.remove("active");
+});
 
 if(tab === "info"){
-buttons[0].classList.add("active");
+document.querySelectorAll(".tab")[0].classList.add("active");
 }else{
-buttons[1].classList.add("active");
+document.querySelectorAll(".tab")[1].classList.add("active");
 }
+
 }
   
 </script>
