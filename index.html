@@ -512,7 +512,7 @@ LOVEFLIX
 </div>
 
 <div class="loader-text">
-Loading Sanjana...
+Loading...
 </div>
 
 </div>
@@ -865,6 +865,23 @@ document
 
 });
 
+</script>
+
+  <script>
+const texts = [
+  "Loading memories...",
+  "Finding favorite moments...",
+  "Preparing Episode 6...",
+  "Loading Sanjana..."
+];
+
+let index = 0;
+const loaderText = document.getElementById("loaderText");
+
+setInterval(() => {
+  index = (index + 1) % texts.length;
+  loaderText.textContent = texts[index];
+}, 600);
 </script>
   
 </body>
