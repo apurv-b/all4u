@@ -570,10 +570,6 @@ and way too many smiles.
     ▶ Play
 </button>
 
-<video id="loveVideo" controls style="display:none; width:100%; max-width:800px;">
-    <source src="love.mp4" type="video/mp4">
-</video>
-  
 <button class="btn info" onclick="showInfo()">
 More Info
 </button>
@@ -821,17 +817,15 @@ Reviews
 </div>
 </div>
 </div>
-  
-  <!-- VIDEO (KEEP ONLY ONE) -->
-<div id="videoSection" style="display:none; padding:40px;">
+
+  <div id="videoSection" style="display:none; padding:40px;">
     <h2>Now Playing</h2>
 
     <video id="loveVideo" controls width="100%">
         <source src="love.mp4" type="video/mp4">
     </video>
 </div>
-
-
+  
 <script>
 
 function playVideo(){
@@ -848,7 +842,17 @@ function playVideo(){
     });
 
     video.play();
+  
+      // optional fullscreen
+    setTimeout(() => {
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+        }
+    }, 300);
 }
+
 
 
 function showInfo(){
@@ -898,5 +902,6 @@ window.addEventListener("load", () => {
 });
 
 </script>
+  
 </body>
 </html>
