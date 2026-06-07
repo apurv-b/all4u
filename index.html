@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preload" as="image" href="op.webp">
+  <link rel="preload" as="image" href="op.jpeg">
   
-<link rel="apple-touch-icon" href="favicon.webp">
-<link rel="shortcut icon" href="favicon.webp">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="shortcut icon" href="favicon.png">
   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -868,6 +868,15 @@ document
 </script>
 
  
+
+let index = 0;
+const loaderText = document.getElementById("loaderText");
+
+setInterval(() => {
+  index = (index + 1) % texts.length;
+  loaderText.textContent = texts[index];
+}, 600);
+</script>
   
 </body>
 </html>
