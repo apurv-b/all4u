@@ -647,18 +647,20 @@ More Info
 
   <div class="row">
 
-    <div class="card character-card"
-      data-name="Sanjana P."
-      data-role="Main Character"
-      data-image="sanjana.webp"
-      data-desc="The heart of the entire story. Kind, funny, caring, and the reason this series exists."
-      data-fact="Favorite Trait: Her Smile"
-      data-appear="Appears In: All Episodes">
+    <div class="card cast-card"
+     data-name="Sanjana P."
+     data-role="Main Character"
+     data-image="sanjana.webp"
+     data-desc="The heart of the entire story."
+     data-info="Favorite Trait: Her Smile">
 
-      <h3>Sanjana P.</h3>
-      <p>Main Character</p>
-    </div>
+    <img src="sanjana.webp" class="cast-thumb">
 
+    <h3>Sanjana P.</h3>
+    <p>Main Character</p>
+
+</div>
+    
     <div class="card character-card"
       data-name="Apurv B."
       data-role="Hopeless Fan"
@@ -902,47 +904,29 @@ window.addEventListener("load", () => {
 
 });
 
-  document.addEventListener("DOMContentLoaded", () => {
+ document.querySelectorAll(".character-card").forEach(card => {
+  card.addEventListener("click", () => {
 
-  const cards = document.querySelectorAll(".character-card");
-  const modal = document.getElementById("characterModal");
+    document.getElementById("charImage").src = card.dataset.image;
+    document.getElementById("charName").textContent = card.dataset.name;
+    document.getElementById("charRole").textContent = card.dataset.role;
+    document.getElementById("charDesc").textContent = card.dataset.desc;
+    document.getElementById("charFact").textContent = card.dataset.fact;
+    document.getElementById("charAppear").textContent = card.dataset.appear;
 
-  cards.forEach(card => {
-
-    card.addEventListener("click", () => {
-
-      document.getElementById("charName").textContent =
-        card.dataset.name;
-
-      document.getElementById("charRole").textContent =
-        card.dataset.role;
-
-      document.getElementById("charImage").src =
-        card.dataset.image;
-
-      document.getElementById("charDesc").textContent =
-        card.dataset.desc;
-
-      document.getElementById("charFact").textContent =
-        card.dataset.fact;
-
-      document.getElementById("charAppear").textContent =
-        card.dataset.appear;
-
-      modal.style.display = "flex";
-    });
-
+    document.getElementById("characterModal").style.display = "flex";
   });
+});  
 
-});
-
-function closeCharacter(){
+function closeCharacter(e){
+  if(!e || e.target.id === "characterModal"){
     document.getElementById("characterModal").style.display = "none";
+  }
 }
-
+  
 </script>
 
-  <div id="characterModal" class="modal" onclick="closeCharacter()">
+  <div id="characterModal" class="modal" onclick="closeCharacter(event)">
   
   <div class="modal-content" onclick="event.stopPropagation()">
 
