@@ -647,27 +647,54 @@ More Info
 
 <div class="row">
 
-<div class="card">
+<div class="card" onclick="showCharacter(
+'Sanjana P.',
+'Main Character',
+'sanjana.webp',
+'The heart of the entire story. Kind, funny, caring, and the reason this series exists.',
+'Favorite Trait: Her Smile',
+'Appears In: All Episodes'
+)">
 <h3>Sanjana P.</h3>
 <p>Main Character</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="showCharacter(
+'Apurv B.',
+'Hopeless Fan',
+'apurv.webp',
+'The guy who somehow turned everyday moments into an entire series.',
+'Favorite Trait: Never Gives Up',
+'Appears In: All Episodes'
+)">
 <h3>Apurv B.</h3>
 <p>Hopeless Fan</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="showCharacter(
+'Fate',
+'Executive Producer',
+'fate.webp',
+'Responsible for every unexpected plot twist.',
+'Power Level: Infinite',
+'Appears In: Every Episode'
+)">
 <h3>Fate</h3>
 <p>Executive Producer</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="showCharacter(
+'Bad Days',
+'Main Villain',
+'villain.webp',
+'Always tries to ruin the mood but never wins.',
+'Threat Level: Medium',
+'Appears In: Sometimes'
+)">
 <h3>Bad Days</h3>
 <p>Main Villain</p>
 </div>
 
-  
 </div>
 </div>
 
@@ -875,9 +902,73 @@ window.addEventListener("load", () => {
 
 });
 
+function showCharacter(name, role, image, desc, fact, appear){
 
+    document.getElementById("charName").innerText = name;
+    document.getElementById("charRole").innerText = role;
+    document.getElementById("charImage").src = image;
+    document.getElementById("charDesc").innerText = desc;
+    document.getElementById("charFact").innerText = fact;
+    document.getElementById("charAppear").innerText = appear;
+
+    document.getElementById("characterModal").style.display = "flex";
+}
+
+function closeCharacter(){
+    document.getElementById("characterModal").style.display = "none";
+}
 
 </script>
+
+  <div id="characterModal" class="modal" onclick="closeCharacter(event)">
+  
+  <div class="modal-content" onclick="event.stopPropagation()">
+
+    <span class="close" onclick="closeCharacter()">×</span>
+
+    <div style="text-align:center">
+
+      <img id="charImage"
+           src=""
+           style="width:180px;height:180px;object-fit:cover;border-radius:50%;border:4px solid #e50914;">
+
+      <h2 id="charName" style="margin-top:15px;"></h2>
+
+      <p id="charRole" style="color:#ccc;"></p>
+
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <h3>About</h3>
+        <p id="charDesc"></p>
+      </div>
+
+      <div class="info-card">
+        <h3>Special Info</h3>
+        <p id="charFact"></p>
+      </div>
+
+      <div class="info-card">
+        <h3>Screen Time</h3>
+        <p id="charAppear"></p>
+      </div>
+
+      <div class="info-card">
+        <h3>Rating</h3>
+        <p>★★★★★</p>
+      </div>
+
+    </div>
+
+    <p class="tagline" id="charQuote">
+      Character Profile
+    </p>
+
+  </div>
+
+</div>
   
 </body>
 </html>
