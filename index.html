@@ -549,10 +549,12 @@ Filled with laughter, memories, chaos,
 and way too many smiles.
 </div>
 
-<div class="buttons">
-<button class="btn play" onclick="playMovie()">
-▶ Play
-</button>
+<button onclick="playVideo()">▶ Play</button>
+
+<video id="loveVideo" width="800" controls style="display:none;">
+    <source src="love.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 <button class="btn info" onclick="showInfo()">
 More Info
@@ -809,12 +811,18 @@ Reviews
 </video>
   
 <script>
-function playMovie(){
-const movie = document.getElementById("movie");
-movie.style.display = "block";
-movie.play();
-movie.scrollIntoView({behavior:"smooth"});
+function playVideo() {
+    const video = document.getElementById("loveVideo");
+
+    video.style.display = "block";
+
+    video.play();
+
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    }
 }
+</script>
 
 function showInfo(){
 document.getElementById("modal").style.display="flex";
