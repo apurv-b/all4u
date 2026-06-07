@@ -505,6 +505,16 @@ margin-bottom:5px;
   
 <body>
 
+  <div id="videoModal" class="modal" onclick="closeVideo(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeVideo()">×</span>
+    <video id="loveVideo" width="100%" controls>
+      <source src="love.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </div>
+</div>
+  
   <div id="loader">
 
 <div class="loader-logo">
@@ -516,6 +526,7 @@ Loading Sanu...
 </div>
 
 </div>
+
   
   <script>
   const password = "Apurv@8446245692";
@@ -804,6 +815,20 @@ Reviews
   
 <script>
 
+  function playVideo(){
+    document.getElementById("videoModal").style.display = "flex"; // show video modal
+    document.getElementById("loveVideo").play();                 // start the video
+}
+
+function closeVideo(e){
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("loveVideo");
+
+    modal.style.display = "none"; // hide modal
+    video.pause();                 // stop video
+    video.currentTime = 0;         // reset video to start
+}
+  
 function showInfo(){
     document.getElementById("modal").style.display = "flex";
 }
@@ -850,9 +875,7 @@ window.addEventListener("load", () => {
 
 });
 
-function playVideo(){
-    alert("Play button clicked!");
-}  
+
 
 </script>
   
