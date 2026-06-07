@@ -819,104 +819,85 @@ Reviews
 <div class="review-stars">★★★★★</div>
 <p>"98% Match? Should be 100%."</p>
 </div>
-
 </div>
-
 </div>
 </div>
   
-<video id="movie" width="100%" controls style="display:none;">
-  <source src="love.mp4" type="video/mp4">
-</video>
-
-  <script>
-function playVideo(){
-
-    const section =
-    document.getElementById("videoSection");
-
-    const video =
-    document.getElementById("loveVideo");
-
-    section.style.display = "block";
-
-    section.scrollIntoView({
-        behavior:"smooth"
-    });
-
-    video.play();
-}
-</script>
-  
-function showInfo(){
-document.getElementById("modal").style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-  function outsideClose(e){
-document.getElementById("modal").style.display="none";
-}
-
-function switchTab(tab){
-
-document.getElementById("info").style.display =
-(tab === "info") ? "block" : "none";
-
-document.getElementById("reviews").style.display =
-(tab === "reviews") ? "block" : "none";
-
-document.querySelectorAll(".tab").forEach(btn=>{
-btn.classList.remove("active");
-});
-
-if(tab === "info"){
-document.querySelectorAll(".tab")[0].classList.add("active");
-}else{
-document.querySelectorAll(".tab")[1].classList.add("active");
-}
-
-}
-  
-</script>
-
-  <script>
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document
-.getElementById("loader")
-.classList
-.add("loader-hide");
-
-},2500);
-
-});
-
-</script>
-
- 
-
-let index = 0;
-const loaderText = document.getElementById("loaderText");
-
-setInterval(() => {
-  index = (index + 1) % texts.length;
-  loaderText.textContent = texts[index];
-}, 600);
-</script>
-
-  <div id="videoSection" style="display:none; padding:40px;">
+  <!-- VIDEO (KEEP ONLY ONE) -->
+<div id="videoSection" style="display:none; padding:40px;">
     <h2>Now Playing</h2>
 
     <video id="loveVideo" controls width="100%">
         <source src="love.mp4" type="video/mp4">
     </video>
 </div>
-  
+
+
+<script>
+
+function playVideo(){
+
+    const section = document.getElementById("videoSection");
+    const video = document.getElementById("loveVideo");
+
+    if(!section || !video) return;
+
+    section.style.display = "block";
+
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    video.play();
+}
+
+
+function showInfo(){
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+function outsideClose(e){
+    if(e.target.id === "modal"){
+        closeModal();
+    }
+}
+
+function switchTab(tab){
+
+    document.getElementById("info").style.display =
+        (tab === "info") ? "block" : "none";
+
+    document.getElementById("reviews").style.display =
+        (tab === "reviews") ? "block" : "none";
+
+    document.querySelectorAll(".tab").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    if(tab === "info"){
+        document.querySelectorAll(".tab")[0].classList.add("active");
+    } else {
+        document.querySelectorAll(".tab")[1].classList.add("active");
+    }
+}
+
+
+// LOADER SCRIPT (FIXED)
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+        const loader = document.getElementById("loader");
+        if(loader){
+            loader.classList.add("loader-hide");
+        }
+    }, 2500);
+
+});
+
+</script>
 </body>
 </html>
