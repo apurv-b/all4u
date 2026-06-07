@@ -154,6 +154,23 @@ max-width:800px;
 border-radius:10px;
 }
 
+  .play-btn{
+    background:#e50914;
+    color:white;
+    border:none;
+    padding:14px 32px;
+    font-size:18px;
+    font-weight:600;
+    border-radius:4px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.play-btn:hover{
+    background:#f6121d;
+    transform:scale(1.05);
+}
+  
 .close{
 position:absolute;
 top:10px;
@@ -548,8 +565,10 @@ who unexpectedly became the best part of my life.
 Filled with laughter, memories, chaos,
 and way too many smiles.
 </div>
-
-<button onclick="playVideo()">▶ Play</button>
+  
+<button class="play-btn" onclick="playVideo()">
+    ▶ Play
+</button>
 
 <video id="loveVideo" width="800" controls style="display:none;">
     <source src="love.mp4" type="video/mp4">
@@ -809,21 +828,26 @@ Reviews
 <video id="movie" width="100%" controls style="display:none;">
   <source src="love.mp4" type="video/mp4">
 </video>
-  
-<script>
-function playVideo() {
-    const video = document.getElementById("loveVideo");
 
-    video.style.display = "block";
+  <script>
+function playVideo(){
+
+    const section =
+    document.getElementById("videoSection");
+
+    const video =
+    document.getElementById("loveVideo");
+
+    section.style.display = "block";
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
 
     video.play();
-
-    if (video.requestFullscreen) {
-        video.requestFullscreen();
-    }
 }
 </script>
-
+  
 function showInfo(){
 document.getElementById("modal").style.display="flex";
 }
@@ -885,6 +909,14 @@ setInterval(() => {
   loaderText.textContent = texts[index];
 }, 600);
 </script>
+
+  <div id="videoSection" style="display:none; padding:40px;">
+    <h2>Now Playing</h2>
+
+    <video id="loveVideo" controls width="100%">
+        <source src="love.mp4" type="video/mp4">
+    </video>
+</div>
   
 </body>
 </html>
