@@ -153,23 +153,6 @@ width:90%;
 max-width:800px;
 border-radius:10px;
 }
-
-  .play-btn{
-    background:#e50914;
-    color:white;
-    border:none;
-    padding:14px 32px;
-    font-size:18px;
-    font-weight:600;
-    border-radius:4px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.play-btn:hover{
-    background:#f6121d;
-    transform:scale(1.05);
-}
   
 .close{
 position:absolute;
@@ -816,33 +799,6 @@ Reviews
 
   
 <script>
-
-function playVideo(){
-
-    const section = document.getElementById("videoSection");
-    const video = document.getElementById("loveVideo");
-
-    if(!section || !video) return;
-
-    section.style.display = "block";
-
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
-
-    video.play();
-  
-      // optional fullscreen
-    setTimeout(() => {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
-        }
-    }, 300);
-}
-
-
 
 function showInfo(){
     document.getElementById("modal").style.display = "flex";
