@@ -902,17 +902,39 @@ window.addEventListener("load", () => {
 
 });
 
-function showCharacter(name, role, image, desc, fact, appear){
+  document.addEventListener("DOMContentLoaded", () => {
 
-    document.getElementById("charName").innerText = name;
-    document.getElementById("charRole").innerText = role;
-    document.getElementById("charImage").src = image;
-    document.getElementById("charDesc").innerText = desc;
-    document.getElementById("charFact").innerText = fact;
-    document.getElementById("charAppear").innerText = appear;
+  const cards = document.querySelectorAll(".character-card");
+  const modal = document.getElementById("characterModal");
 
-    document.getElementById("characterModal").style.display = "flex";
-}
+  cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      document.getElementById("charName").textContent =
+        card.dataset.name;
+
+      document.getElementById("charRole").textContent =
+        card.dataset.role;
+
+      document.getElementById("charImage").src =
+        card.dataset.image;
+
+      document.getElementById("charDesc").textContent =
+        card.dataset.desc;
+
+      document.getElementById("charFact").textContent =
+        card.dataset.fact;
+
+      document.getElementById("charAppear").textContent =
+        card.dataset.appear;
+
+      modal.style.display = "flex";
+    });
+
+  });
+
+});
 
 function closeCharacter(){
     document.getElementById("characterModal").style.display = "none";
@@ -920,7 +942,7 @@ function closeCharacter(){
 
 </script>
 
-  <div id="characterModal" class="modal" onclick="closeCharacter(event)">
+  <div id="characterModal" class="modal" onclick="closeCharacter()">
   
   <div class="modal-content" onclick="event.stopPropagation()">
 
