@@ -130,6 +130,25 @@ font-size:1.3rem;
 color:#ddd;
 font-style:italic;
 }
+
+.chat-gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+
+.chat-gallery img{
+width:100%;
+height:auto;
+max-height:600px;
+object-fit:contain;
+background:#111;
+padding:5px;
+border-radius:10px;
+}
+      
 </style>
 </head>
 
@@ -182,11 +201,12 @@ font-style:italic;
 <div class="box">
 📷 Some old chat screenshots
 
-<img src="chat1.webp" alt="chat screenshot">
-
-    <img src="chat4.webp" alt="chat screenshot">
-      
-<img src="chat3.webp" alt="chat screenshot">
+<div class="chat-gallery">
+    <img src="chat1.webp" alt="Chat Screenshot 1">
+    <img src="chat2.webp" alt="Chat Screenshot 2">
+    <img src="chat3.webp" alt="Chat Screenshot 3">
+    <img src="chat4.webp" alt="Chat Screenshot 4">
+</div>
 
 
 <br><br>
