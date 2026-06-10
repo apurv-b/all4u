@@ -34,6 +34,38 @@ background:rgba(0,0,0,.8);
 z-index:100;
 }
 
+  .character-card{
+position:relative;
+overflow:hidden;
+background-size:cover;
+background-position:center;
+min-height:220px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:20px;
+color:white;
+}
+
+.character-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(0,0,0,0.9),
+rgba(0,0,0,0.2),
+transparent
+);
+}
+}
+
+.character-card h3,
+.character-card p{
+position:relative;
+z-index:2;
+}
+  
 .logo{
 font-size:2rem;
 font-weight:700;
@@ -665,6 +697,7 @@ More Info
   <div class="row">
 
   <div class="card character-card"
+  style="background-image:url('op.webp');"
   data-name="Sanjana P."
   data-role="Main Character"
   data-image="sanjana.webp"
@@ -677,6 +710,7 @@ More Info
 </div>
     
     <div class="card character-card"
+    style="background-image:url('op.webp');"
       data-name="Apurv B."
       data-role="Hopeless Fan"
       data-image="op.webp"
@@ -689,6 +723,7 @@ More Info
     </div>
 
     <div class="card character-card"
+  style="background-image:url('op.webp');"
       data-name="Fate"
       data-role="Executive Producer"
       data-image="fate.webp"
@@ -701,6 +736,7 @@ More Info
     </div>
 
     <div class="card character-card"
+     style="background-image:url('op.webp');"
       data-name="Bad Days"
       data-role="Main Villain"
       data-image="villain.webp"
