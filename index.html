@@ -58,7 +58,6 @@ rgba(0,0,0,0.2),
 transparent
 );
 }
-}
 
 .character-card h3,
 .character-card p{
@@ -955,19 +954,37 @@ window.addEventListener("load", () => {
 
 });
 
- document.querySelectorAll(".character-card").forEach(card => {
-  card.addEventListener("click", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
-    document.getElementById("charImage").src = card.dataset.image;
-    document.getElementById("charName").textContent = card.dataset.name;
-    document.getElementById("charRole").textContent = card.dataset.role;
-    document.getElementById("charDesc").textContent = card.dataset.desc;
-    document.getElementById("charFact").textContent = card.dataset.fact;
-    document.getElementById("charAppear").textContent = card.dataset.appear;
+  document.querySelectorAll(".character-card").forEach(card => {
 
-    document.getElementById("characterModal").style.display = "flex";
+    card.addEventListener("click", () => {
+
+      document.getElementById("charImage").src =
+        card.dataset.image;
+
+      document.getElementById("charName").textContent =
+        card.dataset.name;
+
+      document.getElementById("charRole").textContent =
+        card.dataset.role;
+
+      document.getElementById("charDesc").textContent =
+        card.dataset.desc;
+
+      document.getElementById("charFact").textContent =
+        card.dataset.fact;
+
+      document.getElementById("charAppear").textContent =
+        card.dataset.appear;
+
+      document.getElementById("characterModal").style.display =
+        "flex";
+    });
+
   });
-});  
+
+});
 
 function closeCharacter(e){
   if(!e || e.target.id === "characterModal"){
