@@ -739,72 +739,78 @@ More Info
 
 </div>
 </div>
-
+  <!-- CAST SECTION -->
 <div class="section">
+  <h2>Cast</h2>
 
-<h2>Cast</h2>
+  <div class="row">
 
-<div class="row">
+    <div class="cast-card"
+         data-name="Sanjana P."
+         data-role="Main Character"
+         data-image="sanjana.webp"
+         data-desc="The heart of the entire story. Kind, funny, caring and the reason this series exists."
+         style="background-image:url('op.webp')">
 
-<div class="cast-card"
-style="background-image:url('op.webp')"
-onclick="showCast(
-'Sanjana P.',
-'Main Character',
-'sanjana.webp',
-'The heart of the entire story. Kind, funny, caring and the reason this series exists.'
-)">
-<div class="cast-overlay">
-<h3>Sanjana P.</h3>
-<p>Main Character</p>
-</div>
-</div>
+      <div class="cast-overlay">
+        <h3>Sanjana P.</h3>
+        <p>Main Character</p>
+      </div>
+    </div>
 
-<div class="cast-card"
-style="background-image:url('op.webp')"
-onclick="showCast(
-'Apurv B.',
-'Hopeless Fan',
-'op.webp',
-'The guy who somehow turned everyday moments into an entire series.'
-)">
-<div class="cast-overlay">
-<h3>Apurv B.</h3>
-<p>Hopeless Fan</p>
-</div>
-</div>
+    <div class="cast-card"
+         data-name="Apurv B."
+         data-role="Hopeless Fan"
+         data-image="op.webp"
+         data-desc="The guy who somehow turned everyday moments into an entire series."
+         style="background-image:url('op.webp')">
 
-<div class="cast-card"
-style="background-image:url('op.webp')"
-onclick="showCast(
-'Fate',
-'Executive Producer',
-'fate.webp',
-'Responsible for every unexpected plot twist.'
-)">
-<div class="cast-overlay">
-<h3>Fate</h3>
-<p>Executive Producer</p>
-</div>
-</div>
+      <div class="cast-overlay">
+        <h3>Apurv B.</h3>
+        <p>Hopeless Fan</p>
+      </div>
+    </div>
 
-<div class="cast-card"
-style="background-image:url('op.webp')"
-onclick="showCast(
-'Bad Days',
-'Main Villain',
-'villain.webp',
-'Always tries to ruin the mood but never wins.'
-)">
-<div class="cast-overlay">
-<h3>Bad Days</h3>
-<p>Main Villain</p>
-</div>
+    <div class="cast-card"
+         data-name="Fate"
+         data-role="Executive Producer"
+         data-image="fate.webp"
+         data-desc="Responsible for every unexpected plot twist."
+         style="background-image:url('op.webp')">
+
+      <div class="cast-overlay">
+        <h3>Fate</h3>
+        <p>Executive Producer</p>
+      </div>
+    </div>
+
+    <div class="cast-card"
+         data-name="Bad Days"
+         data-role="Main Villain"
+         data-image="villain.webp"
+         data-desc="Always tries to ruin the mood but never wins."
+         style="background-image:url('op.webp')">
+
+      <div class="cast-overlay">
+        <h3>Bad Days</h3>
+        <p>Main Villain</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-</div>
-</div>
+<!-- CAST MODAL -->
+<div id="castModal" class="cast-modal">
+  <div class="cast-modal-content">
+    <span class="cast-close">&times;</span>
 
+    <img id="castImg" src="" alt="">
+    <h2 id="castName"></h2>
+    <h4 id="castRole"></h4>
+    <p id="castDesc"></p>
+  </div>
+</div>
   
   <div class="section">
 
@@ -949,17 +955,28 @@ Reviews
 
   
 <script>
+function showCast(name, role, image, desc){
 
-  function showCast(name, role, image, desc){
+  console.log("Cast clicked:", name);
 
-  document.getElementById("castName").innerText = name;
-  document.getElementById("castRole").innerText = role;
-  document.getElementById("castImg").src = image;
-  document.getElementById("castDesc").innerText = desc;
+  const castName = document.getElementById("castName");
+  const castRole = document.getElementById("castRole");
+  const castImg = document.getElementById("castImg");
+  const castDesc = document.getElementById("castDesc");
+  const castModal = document.getElementById("castModal");
 
-  document.getElementById("castModal").style.display = "flex";
+  if(!castName || !castRole || !castImg || !castDesc || !castModal){
+    alert("Cast modal elements not found");
+    return;
+  }
+
+  castName.innerText = name;
+  castRole.innerText = role;
+  castImg.src = image;
+  castDesc.innerText = desc;
+
+  castModal.style.display = "flex";
 }
-
 function closeCast(){
   document.getElementById("castModal").style.display = "none";
 }
