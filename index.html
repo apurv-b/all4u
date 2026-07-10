@@ -745,13 +745,14 @@ More Info
 
   <div class="row">
 
-    <div class="cast-card"
-      onclick="showCast()">
-         data-name="Sanjana P."
-         data-role="Main Character"
-         data-image="okay.webp"
-         data-desc="The heart of the entire story. Kind, funny, caring and the reason this series exists."
-         style="background-image:url('okay.webp')">
+  <div class="cast-card"
+     data-name="Sanjana P."
+     data-role="Main Character"
+     data-image="okay.webp"
+     data-desc="The heart of the entire story. Kind, funny, caring and the reason this series exists."
+     style="background-image:url('okay.webp')"
+     onclick="showCast(this)">
+
 
       <div class="cast-overlay">
         <h3>Sanjana P.</h3>
@@ -954,22 +955,50 @@ Reviews
 </div>
 </div>
 
-  
+
 <script>
-function showCast(name, role, image, desc){
+function showCast(element) {
+  // Step 1: Read attributes from the clicked card
+  const name = element.getAttribute("data-name");
+  const role = element.getAttribute("data-role");
+  const image = element.getAttribute("data-image");
+  const desc = element.getAttribute("data-desc");
 
   console.log("Cast clicked:", name);
 
+  // Step 2: Get modal elements
   const castName = document.getElementById("castName");
   const castRole = document.getElementById("castRole");
   const castImg = document.getElementById("castImg");
   const castDesc = document.getElementById("castDesc");
   const castModal = document.getElementById("castModal");
 
-  if(!castName || !castRole || !castImg || !castDesc || !castModal){
+  if (!castName || !castRole || !castImg || !castDesc || !castModal) {
     alert("Cast modal elements not found");
     return;
   }
+
+  // Step 3: Populate modal
+  castName.textContent = name;
+  castRole.textContent = role;
+  castImg.src = image;
+  castDesc.textContent = desc;
+
+  // Step 4: Show modal
+  castModal.style.display = "block";
+}
+
+// Close modal when "×" is clicked
+document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.querySelector(".cast-close");
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      document.getElementById("castModal").style.display = "none";
+    };
+  }
+});
+</script>
+
 
   castName.innerText = name;
   castRole.innerText = role;
