@@ -778,7 +778,8 @@ and way too many smiles.
   
 <button class="btn info" onclick="showInfo()">
 More Info
-
+</button>
+  
 </div>
 
 </section>
@@ -863,7 +864,7 @@ More Info
   <div class="row">
 
     <div class="cast-card"
-      onclick="showCast()"
+      onclick="showCast(this)"
          data-name="Sanjana P."
          data-role="Main Character"
          data-image="okay.webp"
@@ -877,7 +878,7 @@ More Info
     </div>
 
     <div class="cast-card"
-      onclick="showCast()"
+      onclick="showCast(this)"
          data-name="Apurv B."
          data-role="Hopeless Fan"
          data-image="okok.webp"
@@ -891,7 +892,7 @@ More Info
     </div>
 
     <div class="cast-card"
-      onclick="showCast()"
+      onclick="showCast(this)"
          data-name="Fate"
          data-role="Executive Producer"
          data-image="Screenshot_20260612_232428.jpg"
@@ -905,7 +906,7 @@ More Info
     </div>
 
     <div class="cast-card"
-      onclick="showCast()"
+      onclick="showCast(this)"
          data-name="Bad Days"
          data-role="Main Villain"
          data-image="villain.webp"
@@ -924,7 +925,7 @@ More Info
 <!-- CAST MODAL -->
 <div id="castModal" class="cast-modal">
   <div class="cast-modal-content">
-    <span class="cast-close">&times;</span>
+    <span class="cast-close" onclick="closeCast()">&times;</span>
 
     <img id="castImg" src="" alt="">
     <h2 id="castName"></h2>
@@ -1076,28 +1077,25 @@ Reviews
 
   
 <script>
-function showCast(name, role, image, desc){
+  
+function showCast(card){
 
-  console.log("Cast clicked:", name);
+  document.getElementById("castName").innerText =
+      card.dataset.name;
 
-  const castName = document.getElementById("castName");
-  const castRole = document.getElementById("castRole");
-  const castImg = document.getElementById("castImg");
-  const castDesc = document.getElementById("castDesc");
-  const castModal = document.getElementById("castModal");
+  document.getElementById("castRole").innerText =
+      card.dataset.role;
 
-  if(!castName || !castRole || !castImg || !castDesc || !castModal){
-    alert("Cast modal elements not found");
-    return;
-  }
+  document.getElementById("castImg").src =
+      card.dataset.image;
 
-  castName.innerText = name;
-  castRole.innerText = role;
-  castImg.src = image;
-  castDesc.innerText = desc;
+  document.getElementById("castDesc").innerText =
+      card.dataset.desc;
 
-  castModal.style.display = "flex";
+  document.getElementById("castModal").style.display = "flex";
 }
+
+
 function closeCast(){
   document.getElementById("castModal").style.display = "none";
 }
