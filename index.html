@@ -621,15 +621,134 @@ Loading Sanu...
 </div>
 
   
-  <script>
-  const password = "Apurv@8446245692";
-  const input = prompt("Enter password:");
-  if (input !== password) {
-    document.body.innerHTML = "<h2>Access Denied</h2>";
-    window.location.href = "about:blank";
-  }
-</script>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.password-box{
+    width:350px;
+    background:#111;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 0 35px rgba(255,255,255,.08);
+    animation:fade .5s ease;
+}
+
+.password-box h2{
+    color:#fff;
+    margin-bottom:12px;
+}
+
+.password-box p{
+    color:#bdbdbd;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.password-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:#222;
+    color:white;
+    margin-bottom:18px;
+    font-size:15px;
+}
+
+.password-box button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#e50914;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.password-box button:hover{
+    background:#ff1d29;
+}
+
+#error{
+    color:#ff4b4b;
+    margin-top:15px;
+    display:none;
+    font-size:14px;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+</style>
+
+<div id="passwordScreen">
+    <div class="password-box">
+        <h2>🔒 Private Access</h2>
+        <p>Enter the password to continue.</p>
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Password"
+        >
+
+        <button onclick="checkPassword()">Unlock</button>
+
+        <p id="error">Incorrect password.</p>
+    </div>
+</div>
+
+<script>
+const PASSWORD = "Apurv@8446245692";
+
+function checkPassword(){
+    const input = document.getElementById("passwordInput").value;
+
+    if(input === PASSWORD){
+        document.getElementById("passwordScreen").style.display = "none";
+    }else{
+        const error = document.getElementById("error");
+        error.style.display = "block";
+        document.getElementById("passwordInput").value = "";
+        document.getElementById("passwordInput").focus();
+    }
+}
+
+document.getElementById("passwordInput").addEventListener("keypress",function(e){
+    if(e.key==="Enter"){
+        checkPassword();
+    }
+});
+</script>
+  
 <nav>
 <div class="logo">LOVEFLIX</div>
 </nav>
