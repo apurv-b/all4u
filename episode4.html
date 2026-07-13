@@ -9,6 +9,8 @@
 <link rel="shortcut icon" href="favicon.webp">
   
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 *{
@@ -37,16 +39,132 @@ z-index:1000;
 }
 
 /* HERO */
+/* HERO */
 .hero{
-height:60vh;
-background:
-linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
-url("op.webp");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:flex-end;
-padding:50px;
+    min-height:60vh;
+    background:
+    linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
+    url("op.webp");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:50px;
+}
+
+
+
+/* MOBILE RESPONSIVE HERO */
+   
+@media(max-width:600px){
+
+    /* HERO */
+
+    .hero{
+        min-height:45vh;
+        padding:25px;
+        background-position:center;
+    }
+
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+
+    .subtitle{
+        font-size:0.95rem;
+    }
+
+
+    /* CONTAINER */
+
+    .container{
+        padding:20px;
+    }
+
+
+    /* BACK BUTTON */
+
+    .back{
+
+        top:15px;
+        left:15px;
+
+        padding:8px 14px;
+
+        font-size:0.9rem;
+
+    }
+
+
+    /* SECTION SPACING */
+
+    .section{
+        margin-bottom:30px;
+    }
+
+
+    /* BOX */
+
+    .box{
+
+        padding:15px;
+
+        line-height:1.6;
+
+    }
+
+
+    /* MEDIA */
+
+    .media-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+
+    .media-card{
+
+        padding:15px;
+
+    }
+
+
+    .media-card img{
+
+        max-height:none;
+
+    }
+
+
+    /* CHAT */
+
+    .chat{
+
+        padding:15px;
+
+        font-size:0.9rem;
+
+        line-height:1.8;
+
+    }
+
+
+    /* HEADINGS */
+
+    .section h2{
+
+        font-size:1.3rem;
+
+    }
+
 }
 
 .hero h1{
@@ -82,18 +200,73 @@ border-radius:10px;
 line-height:1.7;
 transition:0.3s;
 }
+   /* MEDIA GRID */
+
+.media-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+
+.media-card{
+
+    background:#1f1f1f;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    transition:0.3s;
+
+}
+
+
+.media-card:hover{
+
+    transform:translateY(-5px);
+
+    background:#292929;
+
+}
+
+
+.media-card p{
+
+    color:#ddd;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+}
+
+
+.media-card img{
+
+    width:100%;
+
+    max-height:500px;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.6);
+
+}
 
 .box:hover{
 transform:scale(1.02);
 background:#2a2a2a;
 }
 
-/* MEDIA */
-img{
-width:100%;
-border-radius:10px;
-margin-top:10px;
-}
 
 /* CHAT / MOVIE STYLE */
 .chat{
@@ -105,21 +278,88 @@ color:#ddd;
 line-height:2;
 }
 
-.typing span{
-opacity:0;
-display:inline-block;
-animation:blink 1.5s infinite;
+/* MOVIE STYLE TYPING EFFECT */
+
+.typing p{
+    opacity:0;
+    animation:fadeText 2s forwards;
 }
 
-.typing span:nth-child(1){animation-delay:0s;}
-.typing span:nth-child(2){animation-delay:0.5s;}
-.typing span:nth-child(3){animation-delay:1s;}
+
+/* Different timing for each dialogue line */
+.typing p:nth-child(1){
+    animation-delay:0.5s;
+}
+
+.typing p:nth-child(2){
+    animation-delay:2.5s;
+}
+
+.typing p:nth-child(3){
+    animation-delay:4.5s;
+}
+
+.typing p:nth-child(4){
+    animation-delay:6.5s;
+}
+
+.typing p:nth-child(5){
+    animation-delay:8.5s;
+}
+
+
+@keyframes fadeText{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* Typing dots animation */
+.typing span{
+    opacity:0;
+    display:inline-block;
+    animation:blink 1.5s infinite;
+}
+
+
+.typing span:nth-child(1){
+    animation-delay:0s;
+}
+
+.typing span:nth-child(2){
+    animation-delay:0.3s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:0.6s;
+}
+
 
 @keyframes blink{
-0%{opacity:0;}
-50%{opacity:1;}
-100%{opacity:0;}
+
+    0%{
+        opacity:0;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+    }
+
 }
+
 
 /* QUOTE */
 .quote{
@@ -129,12 +369,23 @@ font-size:1.3rem;
 color:#ddd;
 font-style:italic;
 }
+   .ending-box{
+
+text-align:center;
+
+font-style:italic;
+
+}
+   
 </style>
+   
 </head>
 
 <body>
 
-<a class="back" href="index.html">← Back</a>
+<a class="back" href="index.html" aria-label="Return to Home">
+← Back
+</a>
 
 <!-- HERO -->
 <div class="hero">
@@ -174,21 +425,36 @@ font-style:italic;
 
 <!-- MEDIA -->
 <div class="section">
+
 <h2>Media</h2>
 
-<div class="box">
+<div class="media-grid">
 
-📷 Late night chats screenshot
+    <div class="media-card">
 
-<img src="chat3.webp">
+        <p>📷 Late night chats screenshot</p>
 
-<br><br>
+        <img 
+        src="chat3.webp"
+        alt="Late night chat screenshot"
+        loading="lazy">
 
-📷 Morning notification moment
+    </div>
 
-<img src="chat2.webp">
+
+    <div class="media-card">
+
+        <p>📷 Morning notification moment</p>
+
+        <img 
+        src="chat2.webp"
+        alt="Morning notification screenshot"
+        loading="lazy">
+
+    </div>
 
 </div>
+
 </div>
 
 <!-- MOVIE STYLE MESSAGE -->
@@ -197,23 +463,33 @@ font-style:italic;
 
 <div class="chat typing">
 
-Good night...<br>
-<span>.</span><span>.</span><span>.</span><br><br>
+<p>
+Good night...
+<span>.</span><span>.</span><span>.</span>
+</p>
 
-But the conversation never ended...<br><br>
+<p>
+But the conversation never ended...
+</p>
 
-Good morning text arrives...<br><br>
+<p>
+Good morning text arrives...
+</p>
 
-And suddenly...<br><br>
+<p>
+And suddenly...
+</p>
 
+<p>
 She became part of your routine.
+</p>
 
 </div>
 </div>
 
 <!-- ENDING -->
 <div class="section">
-<div class="box" style="text-align:center;font-style:italic;">
+<div class="box ending-box">
 Some people don’t just talk to you… they become your day.
 </div>
 </div>
