@@ -53,6 +53,7 @@ z-index:1000;
     align-items:flex-end;
 
     padding:50px;
+   padding-bottom:70px;
 }
 
 
@@ -144,17 +145,6 @@ z-index:1000;
     }
 
 
-    /* CHAT */
-
-    .chat{
-
-        padding:15px;
-
-        font-size:0.9rem;
-
-        line-height:1.8;
-
-    }
 
 
     /* HEADINGS */
@@ -266,101 +256,229 @@ transition:0.3s;
 transform:scale(1.02);
 background:#2a2a2a;
 }
+/* SMS CHAT UI */
 
+.sms-container{
 
-/* CHAT / MOVIE STYLE */
-.chat{
-background:#111;
-padding:20px;
-border-radius:10px;
-font-family:monospace;
-color:#ddd;
-line-height:2;
-}
+    max-width:420px;
 
-/* MOVIE STYLE TYPING EFFECT */
+    margin:auto;
 
-.typing p{
-    opacity:0;
-    animation:fadeText 2s forwards;
-}
+    background:#0f172a;
 
+    border-radius:25px;
 
-/* Different timing for each dialogue line */
-.typing p:nth-child(1){
-    animation-delay:0.5s;
-}
+    padding:20px;
 
-.typing p:nth-child(2){
-    animation-delay:2.5s;
-}
+    min-height:450px;
 
-.typing p:nth-child(3){
-    animation-delay:4.5s;
-}
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.5);
 
-.typing p:nth-child(4){
-    animation-delay:6.5s;
-}
-
-.typing p:nth-child(5){
-    animation-delay:8.5s;
-}
-
-
-@keyframes fadeText{
-
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    border:1px solid rgba(255,255,255,0.08);
 
 }
 
 
-/* Typing dots animation */
-.typing span{
-    opacity:0;
-    display:inline-block;
-    animation:blink 1.5s infinite;
-}
+.sms-header{
 
+    text-align:center;
 
-.typing span:nth-child(1){
-    animation-delay:0s;
-}
+    padding-bottom:15px;
 
-.typing span:nth-child(2){
-    animation-delay:0.3s;
-}
+    border-bottom:1px solid rgba(255,255,255,0.1);
 
-.typing span:nth-child(3){
-    animation-delay:0.6s;
-}
-
-
-@keyframes blink{
-
-    0%{
-        opacity:0;
-    }
-
-    50%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:0;
-    }
+    font-weight:600;
 
 }
 
 
+.sms-header span{
+
+    display:block;
+
+    color:#94a3b8;
+
+    font-size:0.75rem;
+
+}
+
+
+.sms-time{
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:0.75rem;
+
+    margin:20px 0;
+
+}
+
+
+/* Chat bubbles */
+
+.sms-message{
+
+    max-width:75%;
+
+    padding:12px 16px;
+
+    margin:15px 0;
+
+    border-radius:18px;
+
+    color:white;
+
+}
+
+
+.receiver{
+
+background:#334155;
+
+border-bottom-left-radius:5px;
+
+}
+
+.sender{
+
+    background:#4A90E2;
+
+    margin-left:auto;
+
+    border-bottom-right-radius:5px;
+
+}
+/* sms container */
+.sms-container{
+
+    width:100%;
+
+}
+   
+/* Typing dots */
+
+.typing-indicator{
+
+    background:#2b2f36;
+
+    width:70px;
+
+    padding:12px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    gap:5px;
+
+}
+
+
+.typing-indicator span{
+
+    width:7px;
+
+    height:7px;
+
+    background:#ddd;
+
+    border-radius:50%;
+
+    animation:dots 1.3s infinite;
+
+}
+
+
+.typing-indicator span:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+
+.typing-indicator span:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+
+@keyframes dots{
+
+0%,100%{
+
+opacity:.3;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+}
+
+
+/* Cinematic text */
+
+.movie-line{
+
+    text-align:center;
+
+    margin:35px 10px;
+
+    color:#94a3b8;
+
+    font-style:italic;
+
+}
+
+
+.highlight{
+
+    color:white;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+}
+
+.sms-message{
+
+    max-width:75%;
+    padding:12px 16px;
+    margin:15px 0;
+    border-radius:18px;
+    color:white;
+
+    animation:messagePop .8s ease forwards;
+
+}
+
+
+@keyframes messagePop{
+
+from{
+
+opacity:0;
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+   
 /* QUOTE */
 .quote{
 text-align:center;
@@ -409,9 +527,9 @@ font-style:italic;
 </div>
 </div>
 
-<!-- NETFLIX DETAILS -->
+<!-- LoveFlix DETAILS -->
 <div class="section">
-<h2>Netflix Details</h2>
+<h2>LoveFlix Details</h2>
 <div class="box">
 <b>Genre:</b> Comfort Romance<br><br>
 
@@ -461,28 +579,64 @@ font-style:italic;
 <div class="section">
 <h2>🎥 Movie-Style Moment</h2>
 
-<div class="chat typing">
+<div class="sms-container">
 
-<p>
-Good night...
-<span>.</span><span>.</span><span>.</span>
-</p>
+    <div class="sms-header">
+        💬 Messages
+        <span>Episode 4</span>
+    </div>
 
-<p>
-But the conversation never ended...
-</p>
 
-<p>
-Good morning text arrives...
-</p>
+    <div class="sms-time">
+        Tonight • 11:48 PM
+    </div>
 
-<p>
-And suddenly...
-</p>
 
-<p>
-She became part of your routine.
-</p>
+    <!-- Receiver -->
+    <div class="sms-message receiver">
+        Good night...
+    </div>
+
+
+    <!-- Sender -->
+    <div class="sms-message sender">
+        Sleep well 😊
+    </div>
+
+
+    <div class="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <div class="movie-line">
+        But the conversation never ended...
+    </div>
+
+
+    <div class="sms-time">
+        Next Morning • 7:02 AM
+    </div>
+
+
+    <!-- Sender -->
+    <div class="sms-message sender">
+        Good morning ☀️
+    </div>
+
+
+    <!-- Receiver -->
+    <div class="sms-message receiver">
+        Morning...
+    </div>
+
+
+    <div class="movie-line highlight">
+        She became part of your routine.
+    </div>
+
 
 </div>
 </div>
