@@ -6,16 +6,23 @@
 <title>Episode 5 — To Be Continued... Forever</title>
 
    <link rel="icon" href="favicon.webp">
-<link rel="shortcut icon" href="favicon.webp">
   
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -37,8 +44,8 @@ z-index:1000;
 }
 
 /* HERO COVER */
-.hero{
-height:70vh;
+.hero
+    min-height:70svh;
 background:
 linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
 url("op.webp");
@@ -46,12 +53,11 @@ background-size:cover;
 background-position:center;
 display:flex;
 align-items:flex-end;
-padding:60px;
+padding:40px 20px;
 }
 
 .hero h1{
-font-size:3.5rem;
-text-shadow:0 10px 30px rgba(0,0,0,0.8);
+    font-size:clamp(2rem,5vw,3.5rem);
 }
 
 .subtitle{
@@ -84,8 +90,7 @@ transition:0.3s;
 }
 
 .box:hover{
-transform:scale(1.02);
-background:#2a2a2a;
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
 }
 
 /* COLLAGE GRID */
@@ -104,8 +109,8 @@ border-radius:10px;
 transition:0.3s;
 }
 
-.grid img:hover{
-transform:scale(1.05);
+.grid{
+    overflow:hidden;
 }
 
 /* TRAILER */
@@ -139,7 +144,12 @@ color:#ddd;
 
 <body>
 
-<a class="back" href="index.html">← Back</a>
+<a
+    class="back"
+    href="index.html"
+    aria-label="Go back to homepage">
+← Back
+</a>
 
 <!-- HERO -->
 <div class="hero">
@@ -188,14 +198,14 @@ color:#ddd;
 📷 Collage of favorite moments
 
 <div class="grid">
-<img src="m1.webp">
-<img src="m2.webp">
-<img src="m3.webp">
-<img src="m4.webp">
-<img src="m5.webp">
-<img src="m6.webp">
-<img src="m7.webp">
-<img src="m8.webp">
+    <img src="m1.webp" alt="Favorite moment 1" loading="lazy">
+    <img src="m2.webp" alt="Favorite moment 2" loading="lazy">
+    <img src="m3.webp" alt="Favorite moment 3" loading="lazy">
+    <img src="m4.webp" alt="Favorite moment 4" loading="lazy">
+    <img src="m5.webp" alt="Favorite moment 5" loading="lazy">
+    <img src="m6.webp" alt="Favorite moment 6" loading="lazy">
+    <img src="m7.webp" alt="Favorite moment 7" loading="lazy">
+    <img src="m8.webp" alt="Favorite moment 8" loading="lazy">
 </div>
 
 <br><br>
@@ -203,18 +213,18 @@ color:#ddd;
 📷 Movie-style posters grid
 
 <div class="grid">
-<img src="p0.webp">
-<img src="p2222.webp">
-<img src="p333.webp">
-<img src="p4.webp">
-<img src="p55.webp">
+    <img src="p0.webp" alt="Movie-style poster 1" loading="lazy">
+    <img src="p2222.webp" alt="Movie-style poster 2" loading="lazy">
+    <img src="p333.webp" alt="Movie-style poster 3" loading="lazy">
+    <img src="p4.webp" alt="Movie-style poster 4" loading="lazy">
+    <img src="p55.webp" alt="Movie-style poster 5" loading="lazy">
 </div>
 
 <br><br>
 
 🎥 Season Recap Trailer
 
-<video controls>
+<video controls preload="metadata">
 <source src="trailer.mp4" type="video/mp4">
 </video>
 
