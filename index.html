@@ -711,6 +711,18 @@ password
 
 }
 
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+document.getElementById(
+"passwordScreen"
+).style.display="none";
+
+}
+
+});
+
 </script>
   
 <nav>
