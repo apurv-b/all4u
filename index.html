@@ -652,9 +652,10 @@ placeholder="Password">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import { 
+import {
   getAuth,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
@@ -700,11 +701,6 @@ email,
 password
 )
     .then((userCredential)=>{
-
-        localStorage.setItem(
-          "loveflixUnlocked",
-          "true"
-        );
 
         document.getElementById(
           "passwordScreen"
