@@ -649,6 +649,56 @@ Some people don’t just talk to you… they become your day.
 </div>
 
 </div>
+   
+<script type="module">
 
+import { initializeApp } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { 
+getAuth,
+onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyD6vkdlfD2HlP4YC0tLdZgXSNhR_MmWa3o",
+
+authDomain: "loveflix-bbg.firebaseapp.com",
+
+projectId: "loveflix-bbg",
+
+storageBucket: "loveflix-bbg.firebasestorage.app",
+
+messagingSenderId: "766260297449",
+
+appId: "1:766260297449:web:6062e2c6a8f52caa13fa78"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+
+onAuthStateChanged(auth,(user)=>{
+
+    if(!user){
+
+        window.location.href="index.html";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
 </body>
 </html>
