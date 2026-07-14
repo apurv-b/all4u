@@ -8,10 +8,92 @@
   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LOVEFLIX</title>
   
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.password-box{
+    width:350px;
+    background:#111;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 0 35px rgba(255,255,255,.08);
+    animation:fade .5s ease;
+}
+
+.password-box h2{
+    color:#fff;
+    margin-bottom:12px;
+}
+
+.password-box p{
+    color:#bdbdbd;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.password-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:#222;
+    color:white;
+    margin-bottom:18px;
+    font-size:15px;
+}
+
+.password-box button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#e50914;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.password-box button:hover{
+    background:#ff1d29;
+}
+
+#error{
+    color:#ff4b4b;
+    margin-top:15px;
+    display:none;
+    font-size:14px;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
 *{
 margin:0;
 padding:0;
@@ -42,7 +124,7 @@ cursor:pointer;
 position:relative;
 background-size:cover;
 background-position:center;
-transition:.3s;
+transition:transform .3s ease;
 flex-shrink:0;
 z-index:1;
 }
@@ -203,10 +285,6 @@ padding:0;
 height:auto;
 }
 
-.card:hover{
-transform:scale(1.08);
-background:#333;
-}
 
 .thumb{
 width:100%;
@@ -225,35 +303,6 @@ font-size:.9rem;
 margin-top:10px;
 }
 
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:1000;
-}
-
-.modal-content{
-background:#181818;
-padding:40px;
-width:90%;
-max-width:800px;
-border-radius:10px;
-}
-  
-.close{
-position:absolute;
-top:10px;
-right:20px;
-font-size:40px;
-color:white;
-font-weight:bold;
-cursor:pointer;
-z-index:9999;
-}
-
   #loader{
 position:fixed;
 top:0;
@@ -269,13 +318,6 @@ z-index:99999;
 transition:opacity .8s ease;
 }
 
-.loader-logo{
-font-size:4rem;
-font-weight:700;
-color:#e50914;
-letter-spacing:4px;
-margin-bottom:15px;
-}
 
 .loader-text{
 font-size:1rem;
@@ -286,10 +328,6 @@ color:#ccc;
     pointer-events:none;
 }
 
-.loader-hide{
-opacity:0;
-pointer-events:none;
-}
   .loader-logo{
 font-size:4rem;
 font-weight:700;
@@ -362,6 +400,7 @@ transition:0.3s;
 
 @media (max-width: 768px) {
 
+  
 nav {
   padding: 15px 20px;
 }
@@ -398,10 +437,6 @@ nav {
   align-items: center;
 }
 
-.card {
-  width: 100%;
-  max-width: 320px;
-}
 
 .timeline {
   padding-left: 20px;
@@ -498,11 +533,6 @@ font-style:italic;
 text-align:center;
 }
 
-  .card{
-transition:0.3s ease;
-cursor:pointer;
-}
-
 .card:hover{
 transform:scale(1.08);
 background:#2a2a2a;
@@ -518,32 +548,8 @@ transition:0.3s;
 color:#e50914;
 }
 
-  @media (max-width: 768px) {
-.hero {
-padding: 20px;
-text-align: center;
-}
-
-.title {
-font-size: 2rem;
-}
-
-.section {
-padding: 20px;
-}
-
-.row {
-flex-direction: column;
-overflow-x: visible;
-align-items: center;
-}
-
-.card {
-width: 90%;
-}
-}
-
   /* INFO GRID */
+  
 .info-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -619,95 +625,6 @@ Loading Sanu...
 </div>
 
 </div>
-
-  
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-#passwordScreen{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.92);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-}
-
-.password-box{
-    width:350px;
-    background:#111;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:18px;
-    padding:35px;
-    text-align:center;
-    box-shadow:0 0 35px rgba(255,255,255,.08);
-    animation:fade .5s ease;
-}
-
-.password-box h2{
-    color:#fff;
-    margin-bottom:12px;
-}
-
-.password-box p{
-    color:#bdbdbd;
-    font-size:14px;
-    margin-bottom:22px;
-}
-
-.password-box input{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    outline:none;
-    background:#222;
-    color:white;
-    margin-bottom:18px;
-    font-size:15px;
-}
-
-.password-box button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:#e50914;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.password-box button:hover{
-    background:#ff1d29;
-}
-
-#error{
-    color:#ff4b4b;
-    margin-top:15px;
-    display:none;
-    font-size:14px;
-}
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:scale(.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-</style>
 
 <div id="passwordScreen">
     <div class="password-box">
