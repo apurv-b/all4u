@@ -672,7 +672,17 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+onAuthStateChanged(auth,(user)=>{
 
+if(user){
+
+document.getElementById(
+"passwordScreen"
+).style.display="none";
+
+}
+
+});
 
 window.Login = function(){
 
@@ -711,17 +721,16 @@ password
 
 }
 
-onAuthStateChanged(auth,(user)=>{
+  document
+.getElementById("firebasePassword")
+.addEventListener("keypress",function(e){
 
-if(user){
-
-document.getElementById(
-"passwordScreen"
-).style.display="none";
-
+if(e.key==="Enter"){
+Login();
 }
 
 });
+  
 
 </script>
   
