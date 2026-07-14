@@ -646,11 +646,23 @@ Loading Sanu...
 <script>
 const PASSWORD = "openit";
 
+  window.addEventListener("load", function(){
+
+if(localStorage.getItem("loveflixUnlocked") === "true"){
+  document.getElementById("passwordScreen").style.display = "none";
+    }
+
+});
+  
 function checkPassword(){
     const input = document.getElementById("passwordInput").value;
+  
+if(input === PASSWORD){
 
-    if(input === PASSWORD){
-        document.getElementById("passwordScreen").style.display = "none";
+localStorage.setItem("loveflixUnlocked", "true");
+  
+    document.getElementById("passwordScreen").style.display = "none";
+
     }else{
         const error = document.getElementById("error");
         error.style.display = "block";
