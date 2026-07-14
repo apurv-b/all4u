@@ -632,50 +632,85 @@ Loading Sanu...
         <p>Enter the password to continue.</p>
 
         <input
-            type="password"
-            id="passwordInput"
-            placeholder="Password"
-        >
+type="email"
+id="email"
+placeholder="Email">
 
-        <button onclick="checkPassword()">Unlock</button>
+
+<input
+type="password"
+id="firebasePassword"
+placeholder="Password">
+      
+        <button onclick="Login()">Unlock</button>
 
         <p id="error">Incorrect password.</p>
     </div>
 </div>
 
-<script>
-const PASSWORD = "openit";
+<script type="module">
 
-  window.addEventListener("load", function(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-if(localStorage.getItem("loveflixUnlocked") === "true"){
-  document.getElementById("passwordScreen").style.display = "none";
-    }
+import { 
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-});
-  
-function checkPassword(){
-    const input = document.getElementById("passwordInput").value;
-  
-if(input === PASSWORD){
 
-localStorage.setItem("loveflixUnlocked", "true");
-  
-    document.getElementById("passwordScreen").style.display = "none";
+const firebaseConfig = {
+  apiKey: "AIzaSyD6vkdlfD2HlP4YC0tLdZgXSNhR_MmWa3o",
+  authDomain: "loveflix-bbg.firebaseapp.com",
+  projectId: "loveflix-bbg",
+  storageBucket: "loveflix-bbg.firebasestorage.app",
+  messagingSenderId: "766260297449",
+  appId: "1:766260297449:web:6062e2c6a8f52caa13fa78"
+};
 
-    }else{
-        const error = document.getElementById("error");
-        error.style.display = "block";
-        document.getElementById("passwordInput").value = "";
-        document.getElementById("passwordInput").focus();
-    }
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+
+window.Login = function(){
+
+    const email = document.getElementById("email").value;
+    const error = document.getElementById("error");
+
+
+    const password =
+document.getElementById("firebasePassword").value;
+
+
+signInWithEmailAndPassword(
+auth,
+email,
+password
+)
+    .then((userCredential)=>{
+
+        localStorage.setItem(
+          "loveflixUnlocked",
+          "true"
+        );
+
+        document.getElementById(
+          "passwordScreen"
+        ).style.display="none";
+
+
+    })
+    .catch((err)=>{
+
+        error.style.display="block";
+        error.innerHTML="Invalid login";
+
+    });
+
 }
 
-document.getElementById("passwordInput").addEventListener("keypress",function(e){
-    if(e.key==="Enter"){
-        checkPassword();
-    }
-});
 </script>
   
 <nav>
