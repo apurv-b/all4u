@@ -268,10 +268,10 @@ margin-bottom:20px;
 }
 
 .row{
-display:flex;
-gap:15px;
-overflow-x:auto;
-padding-bottom:10px;
+    display:flex;
+    flex-direction:row;
+    overflow-x:auto;
+    gap:15px;
 }
 
 .card{
@@ -396,53 +396,7 @@ transition:0.3s;
 transform:translateX(5px);
 transition:0.3s;
 }
-  /* ===== MOBILE RESPONSIVE DESIGN ===== */
-
-@media (max-width: 768px) {
-
-  
-nav {
-  padding: 15px 20px;
-}
-
-.hero {
-  padding: 0 20px;
-  text-align: center;
-}
-
-.title {
-  font-size: 2rem;
-}
-
-.desc {
-  font-size: 0.95rem;
-}
-
-.buttons {
-  flex-direction: column;
-  align-items: center;
-}
-
-.btn {
-  width: 100%;
-  max-width: 250px;
-}
-
-.section {
-  padding: 30px 20px;
-}
-
-.row {
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.timeline {
-  padding-left: 20px;
-}
-}
-
+ 
   .progress-bar{
 width:100%;
 height:5px;
@@ -596,6 +550,199 @@ margin-bottom:12px;
 .review-stars{
 color:#ffd700;
 margin-bottom:5px;
+}
+  /* ==========================================
+   MOBILE RESPONSIVE (Desktop remains same)
+========================================== */
+
+@media screen and (max-width:768px){
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+/* Navigation */
+nav{
+    padding:15px 20px;
+}
+
+.logo{
+    font-size:1.6rem;
+}
+
+/* Hero */
+.hero{
+    height:auto;
+    min-height:100vh;
+    padding:90px 20px 50px;
+    text-align:center;
+    justify-content:center;
+}
+
+.hero-content{
+    max-width:100%;
+}
+
+.title{
+    font-size:2.2rem;
+    line-height:1.2;
+}
+
+.desc{
+    font-size:0.95rem;
+    line-height:1.6;
+}
+
+/* Buttons */
+
+.buttons{
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+}
+
+.btn{
+    width:100%;
+    max-width:280px;
+}
+
+/* Sections */
+
+.section{
+    padding:35px 18px;
+}
+
+/* Episode Cards */
+
+.row{
+    display:flex;
+    flex-direction:row;
+    gap:15px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-bottom:10px;
+    -webkit-overflow-scrolling:touch;
+}
+
+.card,
+.cast-card{
+    flex:0 0 260px;
+}
+
+.thumb{
+    height:200px;
+}
+
+/* Cast Cards */
+
+.cast-card{
+    width:100%;
+    height:300px;
+}
+
+/* Timeline */
+
+.timeline{
+    padding-left:25px;
+}
+
+.timeline-item .dot{
+    left:-33px;
+}
+
+/* Info Grid */
+
+.info-grid{
+    grid-template-columns:1fr;
+}
+
+/* Modal */
+
+.modal-content{
+    width:95%;
+    padding:20px;
+}
+
+/* Modal Grid */
+
+.modal-grid{
+    grid-template-columns:1fr;
+}
+
+/* Cast Modal */
+
+.cast-modal-content{
+    width:95%;
+    padding:20px;
+}
+
+#castImg{
+    width:130px;
+    height:130px;
+}
+
+/* Password Screen */
+
+.password-box{
+    width:90%;
+    padding:25px;
+}
+
+/* Images */
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+/* Videos */
+
+video{
+    width:100%;
+    height:auto;
+}
+
+}
+  @media screen and (max-width:480px){
+
+.logo{
+    font-size:1.4rem;
+}
+
+.title{
+    font-size:1.8rem;
+}
+
+.desc{
+    font-size:0.9rem;
+}
+
+.btn{
+    font-size:15px;
+    padding:12px;
+}
+
+.section h2{
+    font-size:1.4rem;
+}
+
+.card h3{
+    font-size:18px;
+}
+
+.card p{
+    font-size:14px;
+}
+
+.password-box h2{
+    font-size:22px;
+}
+
+.password-box p{
+    font-size:13px;
+}
+
 }
   
 </style>
